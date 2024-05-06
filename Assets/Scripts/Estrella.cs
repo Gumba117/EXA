@@ -12,6 +12,8 @@ public class Estrella : MonoBehaviour
     public float limitesx;
     public float puntaje;
 
+    
+
     private Color azul = Color.blue;
     private Color rojo = Color.red;
     private Color amarilla = Color.yellow;
@@ -25,11 +27,6 @@ public class Estrella : MonoBehaviour
     {
         ProbColor();
     }
-    private void Update()
-    {
-     
-
-    }
     private void OnBecameVisible()
     {
         ProbColor();
@@ -37,8 +34,9 @@ public class Estrella : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     { 
-            gameObject.SetActive(false);
-        Puntaje.puntos= Puntaje.puntos + puntaje;
+        Puntaje.puntosingame= Puntaje.puntosingame + puntaje;
+        GameManager.listo = true;
+        gameObject.SetActive(false);
 
     }
 

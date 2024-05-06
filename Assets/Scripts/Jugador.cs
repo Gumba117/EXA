@@ -7,7 +7,9 @@ public class Jugador : MonoBehaviour
     
     //Movimiento
     public float velocidad;
+    public float velocidadrot;
     private Vector2 moveInput;
+    
     public Rigidbody2D rigidbody2d;
     public float limitesy;
     public float limitesx;
@@ -24,6 +26,8 @@ public class Jugador : MonoBehaviour
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
         moveInput = new Vector2(moveX, moveY).normalized;
+
+        
         //Limites
         Limites();
     }
@@ -31,7 +35,13 @@ public class Jugador : MonoBehaviour
     {
         //Movimiento2.0   
         rigidbody2d.MovePosition(rigidbody2d.position + Time.fixedDeltaTime * velocidad * moveInput);
-        transform.Rotate(moveInput);
+
+        //Rotacion
+        if (moveInput != Vector2.zero)
+        {
+            Quaternion rotate = Quaternion.LookRotation(Vector3.forward, moveInput);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, rotate, velocidadrot * Time.deltaTime);
+        }
     }
    
 

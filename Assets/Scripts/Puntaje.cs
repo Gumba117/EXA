@@ -6,7 +6,9 @@ using UnityEngine;
 public class Puntaje : MonoBehaviour
 {
     private TextMeshProUGUI m_TextMeshProUGUI;
-    public static float puntos;
+    public static float puntosingame;
+    public float puntos;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,5 +19,6 @@ public class Puntaje : MonoBehaviour
     void Update()
     {
         m_TextMeshProUGUI.text = ("Puntaje: " + puntos.ToString("0"));
+        puntos = puntosingame;
     }
 }
