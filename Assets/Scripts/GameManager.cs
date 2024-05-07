@@ -9,43 +9,81 @@ public class GameManager : PoolManager
     public int spawnaleat = 0;
     public static bool listo;
 
+    //Tiempo
+    public Temporizador temporizador;
+
+
+    //UI
+    public GameObject uiInput;
+    public GameObject uiTut;
+    public GameObject uiGuardar;
+    public GameObject uiMenu;
+    
+
+
+
     private void Start()
     {
-        listo = true;
-        ApareceEstrella();
+        
+        uiGuardar.SetActive(false);
+        uiInput.SetActive(false);
+        uiMenu.SetActive(false);
+        uiTut.SetActive(true);
+        Time.timeScale = 0;
+
     }
     private void Update()
     {
         if (listo) 
         {
             ApareceEstrella();
-            Debug.Log(listo);
+           // Debug.Log("Excluido: " + spawnexcluido + " Spawn " + spawnaleat);
         }
+       // Debug.Log(temporizador.tiempo);
+        if (temporizador.tiempo <= 0f)
+        {
+           // Debug.Log("Se acabo el tiempo");
+            Time.timeScale = 0;
+            uiGuardar.SetActive(true);
+            uiInput.SetActive(true);
+            uiMenu.SetActive(true); 
+        }
+        
+        if (Input.anyKey&& (uiTut.activeInHierarchy==true))
+        {
+            Time.timeScale = 1;
+            listo = true;
+            //ApareceEstrella();
+            uiTut.SetActive(false);
+
+        }
+
     }
 
     private void ApareceEstrella()
     {
-        if (spawnexcluido == spawnaleat)
+        do
         {
             spawnaleat = Random.Range(0, spawns.Length);
-            spawnexcluido = spawnaleat;
-            PedirObjeto();
-            listo = false;
-        }
-        else
+        } while (spawnexcluido == spawnaleat);
+        if (spawnaleat!=spawnexcluido)
         {
+            
             PedirObjeto();
             listo = false;
+            spawnexcluido = spawnaleat;
         }
+        
+       
     }
 
     public override GameObject PedirObjeto()
     {
         GameObject Objeto = base.PedirObjeto();
         Objeto.transform.position = spawns[spawnaleat].position;
-        //Objeto.transform.rotation = jugador.rotation;
+       
         Objeto.SetActive(true);
-        //Objeto.GetComponent<Bala>().Disparar(jugador);
+        Objeto.GetComponent<Estrella>().ProbColor();
 
         return Objeto;
     }

@@ -27,20 +27,17 @@ public class Estrella : MonoBehaviour
     {
         ProbColor();
     }
-    private void OnBecameVisible()
-    {
-        ProbColor();
-    }
+    
 
     private void OnTriggerEnter2D(Collider2D collision)
     { 
         Puntaje.puntosingame= Puntaje.puntosingame + puntaje;
-        GameManager.listo = true;
         gameObject.SetActive(false);
+        GameManager.listo = true;
 
     }
 
-    void ProbColor()
+    public void ProbColor()
     {
        
         int rnd = Random.Range(0, 101);

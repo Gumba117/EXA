@@ -4,10 +4,16 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerData
 {
-    public float puntajeAcumulado;
+    public float puntajeMaximo;
+    public string nombreJugador;
 
     public PlayerData(Puntaje puntaje)
     {
-        puntajeAcumulado = puntaje.puntos;
+        if (puntaje.puntos > puntajeMaximo)
+        {
+
+            puntajeMaximo = puntaje.puntos;
+            nombreJugador = puntaje.nombreJugador;
+        }
     }
 }
