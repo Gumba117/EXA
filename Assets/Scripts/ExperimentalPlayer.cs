@@ -27,6 +27,11 @@ public class ExperimentalPlayer : MonoBehaviour
             luz.pointLightOuterRadius -= 0.35f;
             spriteRenderer.color = collision.gameObject.GetComponent<SpriteRenderer>().color;
             jugador.velocidad = jugador.velocidad * 1.1f;
+
+            if (collision.gameObject.GetComponent<SpriteRenderer>().color == Color.black)
+            {
+                luz.pointLightOuterRadius = 12f;
+            }
         }
     }
 }

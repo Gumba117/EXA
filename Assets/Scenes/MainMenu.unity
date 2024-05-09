@@ -663,9 +663,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4512458358987428435, guid: d4618102055d91b49b00beb2496c6e44, type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 5.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 4512458358987428435, guid: d4618102055d91b49b00beb2496c6e44, type: 3}
+      propertyPath: m_LocalBounds.m_Center.y
+      value: -0.00000011920929
+      objectReference: {fileID: 0}
+    - target: {fileID: 4512458358987428435, guid: d4618102055d91b49b00beb2496c6e44, type: 3}
+      propertyPath: m_LocalBounds.m_Extent.x
+      value: 0.9985302
+      objectReference: {fileID: 0}
+    - target: {fileID: 4512458358987428435, guid: d4618102055d91b49b00beb2496c6e44, type: 3}
+      propertyPath: m_LocalBounds.m_Extent.y
+      value: 0.99853027
+      objectReference: {fileID: 0}
     - target: {fileID: 6456524113160725713, guid: d4618102055d91b49b00beb2496c6e44, type: 3}
       propertyPath: m_Name
       value: Estrella
+      objectReference: {fileID: 0}
+    - target: {fileID: 8750308840256451223, guid: d4618102055d91b49b00beb2496c6e44, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8750308840256451223, guid: d4618102055d91b49b00beb2496c6e44, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8750308840256451223, guid: d4618102055d91b49b00beb2496c6e44, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8750308840256451223, guid: d4618102055d91b49b00beb2496c6e44, type: 3}
       propertyPath: m_SortingOrder
